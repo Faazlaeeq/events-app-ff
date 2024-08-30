@@ -79,11 +79,21 @@ class _EvenInfoWidgetState extends State<EvenInfoWidget> {
                           topLeft: Radius.circular(0.0),
                           topRight: Radius.circular(0.0),
                         ),
-                        child: Image.asset(
-                          'assets/images/la_rosolia.png',
+                        child: Image.network(
+                          getJsonField(
+                            EventStruct.maybeFromMap(widget.data!)!.toMap(),
+                            r'''$.eventImages[0]''',
+                          ).toString(),
                           width: double.infinity,
                           height: 350.0,
                           fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                            'assets/images/error_image.png',
+                            width: double.infinity,
+                            height: 350.0,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

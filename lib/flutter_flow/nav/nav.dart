@@ -60,16 +60,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const NavBarPage(),
         ),
         FFRoute(
-          name: 'HomePage',
-          path: '/homePage',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'HomePage')
-              : const NavBarPage(
-                  initialPage: 'HomePage',
-                  page: HomePageWidget(),
-                ),
-        ),
-        FFRoute(
           name: 'advocacy',
           path: '/advocacy',
           builder: (context, params) => params.isEmpty
@@ -94,7 +84,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'viewall',
           path: '/viewall',
-          builder: (context, params) => const ViewallWidget(),
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'viewall')
+              : const ViewallWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

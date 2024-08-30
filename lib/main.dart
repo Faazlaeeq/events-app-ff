@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
 void main() async {
@@ -80,7 +81,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomePage';
+  String _currentPageName = 'advocacy';
   late Widget? _currentPage;
 
   @override
@@ -93,8 +94,8 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomePage': const HomePageWidget(),
       'advocacy': const AdvocacyWidget(),
+      'viewall': const ViewallWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -115,18 +116,18 @@ class _NavBarPageState extends State<NavBarPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
+              Icons.home_filled,
               size: 20.0,
             ),
-            label: 'Home',
+            label: 'Advocacy',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              FFIcons.kbullhorn,
-              size: 20.0,
+              Icons.explore_rounded,
+              size: 24.0,
             ),
-            label: 'Advocacy',
+            label: 'Explore',
             tooltip: '',
           )
         ],

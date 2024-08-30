@@ -282,9 +282,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 16.0),
                                   child: FFButtonWidget(
-                                    onPressed: () async {
-                                      context.pushNamed('HomePage');
-                                    },
+                                    onPressed: () async {},
                                     text: 'Sign In',
                                     options: FFButtonOptions(
                                       width: 370.0,
